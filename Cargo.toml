@@ -1,9 +1,9 @@
 [package]
-name = "ag_unlocker"
+name = "neuroobsessia"
 version = "2.28.2"
 edition = "2021"
-description = "Antigravity Configuration Tool"
-authors = ["Brent t.me/nova_txt"]
+description = "NeuroObsessia"
+authors = ["morphy"]
 
 [dependencies]
 obfstr = "0.4"

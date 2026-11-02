@@ -1,7 +1,7 @@
-# Antigravity Unlocker - terminal mode in one command (Windows 10/11):
+# NeuroObsessia - terminal mode in one command (Windows 10/11):
 #
-#   PowerShell:  irm https://raw.githubusercontent.com/confeden/Antigravity/main/tui.ps1 | iex
-#   cmd:         powershell -NoProfile -c "irm https://raw.githubusercontent.com/confeden/Antigravity/main/tui.ps1 | iex"
+#   PowerShell:  irm https://raw.githubusercontent.com/morphy000/NeuroObsessia/main/tui.ps1 | iex
+#   cmd:         powershell -NoProfile -c "irm https://raw.githubusercontent.com/morphy000/NeuroObsessia/main/tui.ps1 | iex"
 #
 # Fetches the latest release from GitHub into %LOCALAPPDATA%\AGUnlocker\AG.exe and
 # runs it right in this console. Running the same command again downloads only
@@ -23,7 +23,7 @@
     [Net.ServicePointManager]::SecurityProtocol =
         [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-    $repo = 'confeden/Antigravity'
+    $repo = 'morphy000/NeuroObsessia'
     $dir = Join-Path $env:LOCALAPPDATA 'AGUnlocker'
     $exe = Join-Path $dir 'AG.exe'
     $stamp = "$exe.version"
@@ -43,7 +43,7 @@
         if (-not (Test-Path $exe)) { throw "Could not find the latest version on github.com/$repo." }
         Write-Host 'GitHub did not answer - starting the copy downloaded before.'
     } elseif (-not (Test-Path $exe) -or (Get-Content $stamp -ErrorAction SilentlyContinue) -ne $ver) {
-        Write-Host "Downloading Antigravity Unlocker $ver ..."
+        Write-Host "Downloading NeuroObsessia $ver ..."
         New-Item -ItemType Directory -Force $dir | Out-Null
         # The tag spells a fourth number with a dot (v2.24.0.1), the asset with an
         # underscore (AG_2.24.0_1.exe): try both.

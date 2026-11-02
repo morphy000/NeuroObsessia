@@ -25,7 +25,7 @@ pub fn build(status: Option<&Status>, view: &View) -> String {
     let now = crate::utils::local_clock().map_or_else(String::new, |c| c.hms());
     let _ = writeln!(
         out,
-        "Antigravity Unlocker v{} — отчёт {}",
+        "NeuroObsessia v{} — отчёт {}",
         crate::update::current_version(),
         now
     );

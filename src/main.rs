@@ -631,7 +631,7 @@ fn main() {
             if std::io::stdin().is_terminal() {
                 run_tui(Some(note));
             } else {
-                utils::message_box("Antigravity Unlocker", &e);
+                utils::message_box("NeuroObsessia", &e);
                 std::process::exit(1);
             }
         }
@@ -640,7 +640,7 @@ fn main() {
 
 fn run_tui(note: Option<String>) {
     if let Err(e) = tui::run(note) {
-        utils::message_box("Antigravity Unlocker", &e);
+        utils::message_box("NeuroObsessia", &e);
         std::process::exit(1);
     }
 }

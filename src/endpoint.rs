@@ -381,7 +381,7 @@ pub fn apply_proxy(url: &str, _ca_path: &str) -> Result<Outcome, String> {
     use std::process::Command;
     let path = environment_d_path()?;
     let body = format!(
-        "# Antigravity Unlocker — гейт-хосты через локальный прокси. Переменную\n\
+        "# NeuroObsessia — гейт-хосты через локальный прокси. Переменную\n\
          # читает только пропатченный language server. Удалите файл, чтобы\n\
          # отключить.\n\
          {k}={u}\n",

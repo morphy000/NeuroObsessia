@@ -21,10 +21,10 @@ use crate::ops::{self, Cmd, Event, Level, Status, Worker};
 use crate::settings::Settings;
 use crate::update::{self, ReleaseInfo};
 
-pub const TELEGRAM_GROUP_URL: &str = "https://t.me/nova_txt";
+pub const TELEGRAM_GROUP_URL: &str = "";
 /// The room the free keys are pinned in (spec item 9), not the group root.
-pub const TELEGRAM_KEYS_URL: &str = "https://t.me/nova_txt/69864";
-pub const DONATE_URL: &str = "https://nova-app.eu/donate";
+pub const TELEGRAM_KEYS_URL: &str = "";
+pub const DONATE_URL: &str = "";
 
 const WIN_W: f32 = 600.0;
 const WIN_H: f32 = 840.0;
@@ -395,20 +395,12 @@ fn without_source_location(msg: &str) -> &str {
 /// `AG_UNLOCKER_DEV_SKIP_KEY` set, so the main screen can be looked at while it
 /// is being worked on. Compiled out of every release build (`build_rust.py`
 /// builds release), so a shipped exe has no way past the key.
-fn first_screen(settings: &Settings) -> Screen {
-    #[cfg(debug_assertions)]
-    if std::env::var_os("AG_UNLOCKER_DEV_SKIP_KEY").is_some() {
-        return Screen::Main;
-    }
-    // A key accepted before and still good for this version: no screen.
-    if crate::auth::verify_key(&settings.license_key) {
-        return Screen::Main;
-    }
-    Screen::License
+fn first_screen(_settings: &Settings) -> Screen {
+    Screen::Main
 }
 
 fn title() -> String {
-    format!("Antigravity Unlocker 2 v{}", update::current_version())
+    format!("NeuroObsessia v{}", update::current_version())
 }
 
 #[cfg(test)]

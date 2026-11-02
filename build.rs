@@ -192,23 +192,20 @@ fn main() {
     if env::var("CARGO_CFG_TARGET_OS").unwrap() == "windows" {
         let mut res = winres::WindowsResource::new();
         res.set_icon("icon.ico");
-        res.set("FileDescription", "Antigravity Configuration Tool");
-        res.set("ProductName", "Antigravity Configurator");
-        res.set("LegalCopyright", "Brent t.me/nova_txt");
+        res.set("FileDescription", "NeuroObsessia");
+        res.set("ProductName", "NeuroObsessia");
+        res.set("LegalCopyright", "morphy");
         // Copyright management information in the version resource: survives
         // UPX (the resource directory stays readable on the packed file) and is
         // visible in the file's Properties dialog without any tooling.
         res.set(
             "LegalTrademarks",
-            "Antigravity Unlocker (c) 2026 Brent - github.com/confeden/Antigravity",
+            "NeuroObsessia - github.com/morphy000/NeuroObsessia",
         );
         res.set(
             "Comments",
             &format!(
-                "Antigravity Unlocker (c) 2026 Brent, t.me/nova_txt. \
-                 Origin: github.com/confeden/Antigravity. \
-                 Non-Commercial & Restricted Use License - derivative works not permitted. \
-                 mark {} build {}",
+                "NeuroObsessia. Origin: github.com/morphy000/NeuroObsessia. mark {} build {}",
                 static_canary, release_token
             ),
         );

@@ -6,9 +6,8 @@
 
 ## Установка
 
-1. Скачайте последнюю версию в [Releases](https://github.com/confeden/Antigravity/releases) и установите Antigravity с [официального сайта](https://antigravity.google/download).
+1. Скачайте последнюю версию в [Releases](https://github.com/morphy000/NeuroObsessia/releases) и установите Antigravity с [официального сайта](https://antigravity.google/download).
 2. Запустите анлокер **от имени администратора** (правой кнопкой по файлу). Без прав администратора ставится только патч клиента, а служба, снимающая ошибку 400 «User location is not supported», нет.
-3. Введите бесплатный ключ из закреплённых сообщений группы [t.me/nova_txt](https://t.me/nova_txt/69864). Ключ свой для каждой версии: после обновления анлокера нужен новый.
 4. Нажмите **«Включить всё»** (Antigravity закроется на пару секунд).
 5. Запустите Antigravity, войдите в аккаунт и напишите что-нибудь в чат. Карточка вверху окна станет зелёной: **«Работает. Модель ответила …»**.
 
@@ -25,13 +24,13 @@
 Для сервера по SSH или если окно не открывается. Команда сама берёт последнюю версию.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/confeden/Antigravity/main/tui.sh | sh
+curl -fsSL https://raw.githubusercontent.com/morphy000/NeuroObsessia/main/tui.sh | sh
 ```
 
 В PowerShell от администратора:
 
 ```powershell
-irm https://raw.githubusercontent.com/confeden/Antigravity/main/tui.ps1 | iex
+irm https://raw.githubusercontent.com/morphy000/NeuroObsessia/main/tui.ps1 | iex
 ```
 
 Вставьте ключ и нажмите Enter. Стрелки: выбор, Пробел: включить или выключить, `q`: выход.
@@ -65,8 +64,7 @@ Gemini CLI не поддерживается: Google закрыл в нём вх
 
 # Создано с ❤️
 
-🙋 **Группа в Телеграм:** [@nova_txt](https://t.me/nova_txt) — вопросы, новости,
 поддержка.
 
-☕ **[Отблагодарить](https://nova-app.eu/donate)** — если Antigravity Unlocker оказался полезным.
+☕ **[Отблагодарить](https://nova-app.eu/donate)** — если NeuroObsessia оказался полезным.
 Это необязательный способ сказать "спасибо".

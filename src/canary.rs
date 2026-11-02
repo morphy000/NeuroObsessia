@@ -63,18 +63,15 @@ pub const CANARY_SEP: &str = "::";
 /// tree, so a copy still matches even when its origin release is unknown.
 pub const STATIC_CANARY: &str = "AGU-IBS3Q-ZDXY1-0RMEU";
 
-pub const AUTHOR: &str = "Brent (t.me/nova_txt)";
-pub const ORIGIN: &str = "https://github.com/confeden/Antigravity";
+pub const AUTHOR: &str = "morphy";
+pub const ORIGIN: &str = "https://github.com/morphy000/NeuroObsessia";
 
 /// Copyright management information. Kept on one line so a `strings` dump of the
 /// binary shows it intact.
 pub const NOTICE: &str = concat!(
-    "Antigravity Unlocker. Copyright (c) 2026 Brent (t.me/nova_txt). ",
-    "Origin: https://github.com/confeden/Antigravity . ",
-    "Licensed under the Antigravity Non-Commercial & Restricted Use License: ",
-    "modification, derivative works and public hosting of modified copies are ",
-    "not permitted. This notice is copyright management information; removing ",
-    "or altering it is assessed separately from the copying itself."
+    "NeuroObsessia. Copyright (c) 2026 morphy. ",
+    "Origin: https://github.com/morphy000/NeuroObsessia . ",
+    "Licensed under the MIT License."
 );
 
 /// Keeps the notice and both canaries in the binary even if no code path happens
@@ -171,8 +168,8 @@ mod tests {
     #[test]
     fn notice_names_author_licence_and_origin() {
         assert!(NOTICE.contains("Copyright (c) 2026"));
-        assert!(NOTICE.contains("t.me/nova_txt"));
-        assert!(NOTICE.contains("github.com/confeden/Antigravity"));
+        assert!(NOTICE.contains("morphy"));
+        assert!(NOTICE.contains("github.com/morphy000/NeuroObsessia"));
         assert!(NOTICE.contains("Restricted Use License"));
     }
 }

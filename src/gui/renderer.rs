@@ -300,7 +300,7 @@ pub fn install() {
             }
         }
         crate::utils::message_box(
-            "Antigravity Unlocker",
+            "NeuroObsessia",
             &format!("Программа аварийно завершилась.\n\n{what}"),
         );
     }));

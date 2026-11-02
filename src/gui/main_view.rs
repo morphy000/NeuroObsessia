@@ -258,13 +258,7 @@ fn antigravity_card(app: &mut App, ui: &mut egui::Ui) {
         ui.add_space(8.0);
         bypass_master(app, ui);
 
-        // The group proxy is a way of its own: it can be the only one on, so the
-        // row is always there.
-        ui.add_space(10.0);
-        ui.separator();
-        ui.add_space(8.0);
-        cap_row(app, ui, Cap::GroupProxy);
-        group_proxy_field(app, ui);
+
 
         ui.add_space(10.0);
         ui.separator();
@@ -660,7 +654,7 @@ fn group_proxy_field(app: &mut App, ui: &mut egui::Ui) {
 }
 
 /// The group's topic where the bot answers the command.
-const GROUP_ROOM_URL: &str = "https://t.me/nova_txt/69864";
+const GROUP_ROOM_URL: &str = "";
 
 /// The user's own DNS server(s) for the bypass: joins the pool as one more provider.
 fn custom_dns_field(app: &mut App, ui: &mut egui::Ui) {
@@ -859,44 +853,13 @@ fn log_keys(app: &mut App, ui: &mut egui::Ui) {
 const FOOTER_TEXT: f32 = 13.0;
 
 fn footer(ui: &mut egui::Ui) {
-    // The strip was about twice as tall as its text. Two things made it so, and
-    // the margin was the smaller one: a link is an *interactive* widget, so it
-    // claims `interact_size.y` (26 px, sized for buttons) however short its text
-    // is. Shrinking that here — and only here — is what actually halves the bar.
     ui.spacing_mut().interact_size.y = 18.0;
     ui.spacing_mut().item_spacing.y = 0.0;
 
-    // Built right-to-left, so it reads left-to-right on screen while staying
-    // pinned to the right edge.
     ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-        // The outer frame keeps only 4 px on the right, for the scroll bar. The
-        // footer is not inside the scrolling area, so it pays that back itself
-        // or its last link is cut off by the window edge.
         ui.add_space(12.0);
-        if ui
-            .link(egui::RichText::new("t.me/nova_txt").size(FOOTER_TEXT))
-            .clicked()
-        {
-            crate::utils::open_url(TELEGRAM_GROUP_URL);
-        }
         ui.label(
-            egui::RichText::new("Группа в Telegram:")
-                .size(FOOTER_TEXT)
-                .color(theme::MUTED),
-        );
-        ui.label(
-            egui::RichText::new("|")
-                .size(FOOTER_TEXT)
-                .color(theme::LINE),
-        );
-        if ui
-            .link(egui::RichText::new("nova-app.eu/donate").size(FOOTER_TEXT))
-            .clicked()
-        {
-            crate::utils::open_url(DONATE_URL);
-        }
-        ui.label(
-            egui::RichText::new("Отблагодарить копеечкой:")
+            egui::RichText::new("NeuroObsessia")
                 .size(FOOTER_TEXT)
                 .color(theme::MUTED),
         );

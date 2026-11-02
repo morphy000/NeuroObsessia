@@ -15,9 +15,9 @@ use rustls::pki_types::ServerName;
 use rustls::{ClientConfig, ClientConnection};
 use serde::{Deserialize, Serialize};
 
-pub const RELEASES_LATEST_URL: &str = "https://github.com/confeden/Antigravity/releases/latest";
+pub const RELEASES_LATEST_URL: &str = "https://github.com/morphy000/NeuroObsessia/releases/latest";
 const API_HOST: &str = "api.github.com";
-const API_PATH: &str = "/repos/confeden/Antigravity/releases/latest";
+const API_PATH: &str = "/repos/morphy000/NeuroObsessia/releases/latest";
 const CHECK_INTERVAL: Duration = Duration::from_secs(8 * 60 * 60);
 
 const CONNECT_TIMEOUT: Duration = Duration::from_secs(10);
@@ -388,7 +388,7 @@ mod tests {
     fn test_release_json_deserialization() {
         let sample = r#"{
             "tag_name": "v2.11.0_4",
-            "html_url": "https://github.com/confeden/Antigravity/releases/tag/v2.11.0_4",
+            "html_url": "https://github.com/morphy000/NeuroObsessia/releases/tag/v2.11.0_4",
             "name": "Релиз v2.11.0_4",
             "draft": false,
             "prerelease": false,

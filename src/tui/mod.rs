@@ -551,8 +551,8 @@ impl App {
                 }
             }
             Row::GroupProxyOpenRoom => {
-                crate::utils::open_url("https://t.me/nova_txt/69864");
-                self.toast("Открыто в браузере: https://t.me/nova_txt/69864");
+                // noop
+                self.toast("Открыто в браузере: ");
             }
             Row::GroupProxyCopy => {
                 let cmd = format!("/ag+{}", crate::hwid::pc_code());
@@ -728,11 +728,6 @@ impl App {
             rows.push(Row::CustomDnsText);
             rows.push(Row::Cap(Cap::LocalProxy));
             rows.push(Row::Cap(Cap::BuiltinExits));
-            rows.push(Row::Cap(Cap::GroupProxy));
-            rows.push(Row::GroupProxyText);
-            rows.push(Row::GroupProxyOpenRoom);
-            rows.push(Row::GroupProxyCopy);
-            rows.push(Row::GroupProxyPaste);
             rows.push(Row::Cap(Cap::OwnProxy));
             rows.push(Row::OwnProxyText);
         }
@@ -926,7 +921,7 @@ impl App {
 
     fn title_line(&self) -> Line<'static> {
         let mut spans = vec![Span::styled(
-            format!(" Antigravity Unlocker 2 v{} ", update::current_version()),
+            format!(" NeuroObsessia v{} ", update::current_version()),
             Style::new().add_modifier(Modifier::BOLD),
         )];
         if let Some(rel) = &self.update {
@@ -1273,16 +1268,8 @@ fn wrapped_height(text: &str, width: u16) -> u16 {
 
 /// The licence screen, always — except in a *debug* build started with
 /// `AG_UNLOCKER_DEV_SKIP_KEY`, as in the window.
-fn first_screen(settings: &crate::settings::Settings) -> Screen {
-    #[cfg(debug_assertions)]
-    if std::env::var_os("AG_UNLOCKER_DEV_SKIP_KEY").is_some() {
-        return Screen::Main;
-    }
-    // A key accepted before and still good for this version: no screen.
-    if auth::verify_key(&settings.license_key) {
-        return Screen::Main;
-    }
-    Screen::License
+fn first_screen(_settings: &crate::settings::Settings) -> Screen {
+    Screen::Main
 }
 
 enum Copied {
@@ -1413,7 +1400,7 @@ mod console {
                     SetStdHandle(which, h);
                 }
             }
-            let title = wide("Antigravity Unlocker");
+            let title = wide("NeuroObsessia");
             SetConsoleTitleW(title.as_ptr());
         }
         Ok(())

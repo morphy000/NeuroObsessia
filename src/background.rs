@@ -183,7 +183,7 @@ mod windows_impl {
                   -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew \
                   -ExecutionTimeLimit ([TimeSpan]::Zero) \
                   -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 1); \
-             $d='Antigravity Unlocker: локальный DNS-релей'; \
+             $d='NeuroObsessia: локальный DNS-релей'; \
              try {{ \
                $p=New-ScheduledTaskPrincipal -UserId \"$env:USERDOMAIN\\$env:USERNAME\" \
                     -LogonType S4U -RunLevel Limited; \
@@ -375,7 +375,7 @@ mod windows_impl {
                   -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew \
                   -ExecutionTimeLimit ([TimeSpan]::Zero) \
                   -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 1); \
-             $d='Antigravity Unlocker: сторож патча'; \
+             $d='NeuroObsessia: сторож патча'; \
              try {{ \
                $p=New-ScheduledTaskPrincipal -UserId \"$env:USERDOMAIN\\$env:USERNAME\" \
                     -LogonType S4U -RunLevel Limited; \
@@ -629,7 +629,7 @@ mod unix_impl {
         // the desktop session's value, and a service writing into a different
         // directory than the window reads leaves the card on «Служба запускается»
         // for good - so the unit is given the directory the window uses.
-        let unit = unit_text("Antigravity Unlocker local proxy", PROXY_FLAG);
+        let unit = unit_text("NeuroObsessia local proxy", PROXY_FLAG);
         // A unit from an older build lacks the data-dir line; running on under
         // it keeps the service writing where the window does not look.
         let unit_changed = fs::read_to_string(&up).map_or(true, |old| old != unit);
@@ -738,7 +738,7 @@ mod unix_impl {
         if let Some(p) = up.parent() {
             fs::create_dir_all(p).map_err(|e| format!("не создать {}: {}", p.display(), e))?;
         }
-        let unit = unit_text("Antigravity Unlocker auto-patch", WATCHDOG_FLAG);
+        let unit = unit_text("NeuroObsessia auto-patch", WATCHDOG_FLAG);
         let unit_changed = fs::read_to_string(&up).map_or(true, |old| old != unit);
         fs::write(&up, unit).map_err(|e| format!("не записать юнит: {}", e))?;
         systemctl(&["daemon-reload"]);

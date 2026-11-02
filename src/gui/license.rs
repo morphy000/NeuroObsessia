@@ -20,7 +20,7 @@ pub fn view(app: &mut App, ui: &mut egui::Ui) {
     ui.vertical_centered(|ui| {
         ui.add_space(40.0);
         ui.label(
-            egui::RichText::new("Antigravity Unlocker")
+            egui::RichText::new("NeuroObsessia")
                 .size(28.0)
                 .strong(),
         );
@@ -88,7 +88,7 @@ pub fn view(app: &mut App, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             pressed = widgets::primary(ui, "Продолжить", can_continue).clicked();
             ui.add_space(8.0);
-            if widgets::ghost(ui, "Взять ключ из группы").clicked() {
+            if widgets::ghost(ui, "NeuroObsessia").clicked() {
                 crate::utils::open_url(TELEGRAM_KEYS_URL);
             }
         });
