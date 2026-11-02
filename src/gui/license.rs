@@ -87,11 +87,9 @@ pub fn view(app: &mut App, ui: &mut egui::Ui) {
         let mut pressed = false;
         ui.horizontal(|ui| {
             pressed = widgets::primary(ui, "Продолжить", can_continue).clicked();
-            ui.add_space(8.0);
-            if widgets::ghost(ui, "NeuroObsessia").clicked() {
-                crate::utils::open_url(TELEGRAM_KEYS_URL);
-            }
         });
+        ui.add_space(6.0);
+        widgets::hint(ui, "Для получения ключа обратитесь к администратору NeuroObsessia.");
 
         if (entered || pressed) && normalized_len == 24 {
             let attempt_now = std::time::Instant::now();

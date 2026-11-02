@@ -976,16 +976,13 @@ impl App {
             let why = if normalized != 24 {
                 "В ключе 24 буквы и цифры (дефис не считается)."
             } else {
-                "Ключ не подходит к этой версии анлокера."
+                "Неверный лицензионный ключ NeuroObsessia."
             };
             lines.push(Line::styled(why, Style::new().fg(Color::Red)));
             lines.push(Line::raw(""));
         }
         lines.push(Line::styled(
-            format!(
-                "Ключ можно взять в группе: {}",
-                crate::gui::TELEGRAM_KEYS_URL
-            ),
+            "Для получения ключа обратитесь к администратору NeuroObsessia.".to_string(),
             Style::new().fg(Color::Gray),
         ));
         lines.push(Line::raw(""));
@@ -1268,8 +1265,15 @@ fn wrapped_height(text: &str, width: u16) -> u16 {
 
 /// The licence screen, always — except in a *debug* build started with
 /// `AG_UNLOCKER_DEV_SKIP_KEY`, as in the window.
-fn first_screen(_settings: &crate::settings::Settings) -> Screen {
-    Screen::Main
+fn first_screen(settings: &crate::settings::Settings) -> Screen {
+    #[cfg(debug_assertions)]
+    if std::env::var_os("AG_UNLOCKER_DEV_SKIP_KEY").is_some() {
+        return Screen::Main;
+    }
+    if auth::verify_key(&settings.license_key) {
+        return Screen::Main;
+    }
+    Screen::License
 }
 
 enum Copied {
